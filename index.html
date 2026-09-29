@@ -8,37 +8,37 @@
   <!-- Font Google: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
     /* ==========================================================================
-       CSS VARIABLES & THEME (Soft Lavender, Deep Plum, & Crisp White)
+       CSS VARIABLES & THEME (Soft Lavender, Deep Plum, & Modern Aesthetic)
        ========================================================================== */
     :root {
-      --bg-body: #f8f6fc;
+      --bg-body: #faf8fc;
       --bg-card: #ffffff;
-      --bg-surface: #f2ecf9;
-      --primary-purple: #70559e;
-      --primary-hover: #5a4282;
-      --text-headline: #281e3a;
-      --text-body: #473d5a;
-      --text-muted: #796f8c;
-      --accent-light: #eee7f7;
-      --border-subtle: #e6dfef;
+      --bg-surface: #f3ecf9;
+      --primary-purple: #6b4e9b;
+      --primary-hover: #563c7f;
+      --text-headline: #241a35;
+      --text-body: #483d5c;
+      --text-muted: #7d7294;
+      --accent-light: #eee5f8;
+      --accent-pill: #ede2f8;
+      --border-subtle: #e9e1f2;
       --border-focus: #cbbde0;
-      --watermark-color: rgba(144, 126, 179, 0.08);
 
       --font-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
       --radius-full: 9999px;
       
-      --shadow-subtle: 0 4px 18px rgba(70, 48, 102, 0.04);
-      --shadow-card: 0 10px 28px rgba(70, 48, 102, 0.06);
-      --shadow-hover: 0 16px 36px rgba(112, 85, 158, 0.14);
+      --shadow-subtle: 0 4px 20px rgba(78, 52, 114, 0.04);
+      --shadow-card: 0 12px 30px rgba(78, 52, 114, 0.06);
+      --shadow-hover: 0 18px 40px rgba(107, 78, 155, 0.14);
     }
 
     *, *::before, *::after {
@@ -56,7 +56,7 @@
       font-family: var(--font-base);
       background-color: var(--bg-body);
       color: var(--text-body);
-      line-height: 1.68;
+      line-height: 1.7;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -83,54 +83,58 @@
 
     .container {
       width: 90%;
-      max-width: 1120px;
+      max-width: 1140px;
       margin: 0 auto;
     }
 
     .section {
-      padding: 95px 0;
+      padding: 100px 0;
       position: relative;
     }
 
-    /* BUTTONS */
+    /* ==========================================================================
+       BUTTONS & CHIPS
+       ========================================================================== */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 0.95rem;
       font-weight: 600;
-      padding: 12px 24px;
-      border-radius: var(--radius-sm);
+      padding: 12px 26px;
+      border-radius: var(--radius-full);
       cursor: pointer;
       border: 1px solid transparent;
       transition: var(--transition);
+      letter-spacing: -0.2px;
     }
 
     .btn-primary {
-      background-color: var(--primary-purple);
+      background: linear-gradient(135deg, #7858ad 0%, #5d3f8f 100%);
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(112, 85, 158, 0.25);
+      box-shadow: 0 6px 18px rgba(107, 78, 155, 0.28);
     }
 
     .btn-primary:hover {
-      background-color: var(--primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(112, 85, 158, 0.32);
+      box-shadow: 0 10px 24px rgba(107, 78, 155, 0.38);
     }
 
     .btn-secondary {
       background-color: #ffffff;
       color: var(--text-headline);
-      border-color: var(--border-focus);
+      border: 1px solid var(--border-focus);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
     .btn-secondary:hover {
       border-color: var(--primary-purple);
+      color: var(--primary-purple);
       transform: translateY(-2px);
     }
 
     .btn-sm {
-      padding: 9px 18px;
+      padding: 9px 20px;
       font-size: 0.85rem;
     }
 
@@ -139,7 +143,7 @@
       align-items: center;
       gap: 6px;
       font-weight: 600;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--primary-purple);
       margin-top: auto;
     }
@@ -149,15 +153,17 @@
       transform: translateX(4px);
     }
 
-    /* HEADER & NAVBAR */
+    /* ==========================================================================
+       HEADER & NAVBAR (CUSTOM REFINED LOGO)
+       ========================================================================== */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: rgba(248, 246, 252, 0.92);
-      backdrop-filter: blur(12px);
+      background-color: rgba(250, 248, 252, 0.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid transparent;
       transition: var(--transition);
     }
@@ -165,29 +171,48 @@
     .header.scrolled {
       background-color: rgba(255, 255, 255, 0.96);
       border-bottom-color: var(--border-subtle);
-      box-shadow: var(--shadow-subtle);
+      box-shadow: 0 4px 20px rgba(78, 52, 114, 0.04);
     }
 
     .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 76px;
     }
 
+    /* LOGO MODERN DENGAN MONOGRAM TG EMBLEM */
     .logo {
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: var(--text-headline);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
     }
 
-    .logo-symbol {
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #7454a8 0%, #583b87 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.88rem;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 10px rgba(107, 78, 155, 0.25);
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text-headline);
+    }
+
+    .brand-text span {
       color: var(--primary-purple);
-      font-size: 1.3rem;
+      font-weight: 500;
     }
 
     .nav-list {
@@ -200,6 +225,7 @@
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-muted);
+      position: relative;
     }
 
     .nav-link:hover,
@@ -210,7 +236,7 @@
     .nav-btn-cta {
       background-color: var(--accent-light);
       color: var(--primary-purple) !important;
-      padding: 8px 18px;
+      padding: 8px 20px;
       border-radius: var(--radius-full);
       font-weight: 600;
     }
@@ -237,21 +263,53 @@
       transition: var(--transition);
     }
 
-    /* 1. HERO SECTION */
+    /* ==========================================================================
+       1. HERO SECTION (REFINED & NO TACKY AI WATERMARKS)
+       ========================================================================== */
     .hero {
       position: relative;
-      min-height: 94vh;
+      min-height: 92vh;
       display: flex;
       align-items: center;
-      padding-top: 75px;
+      padding-top: 85px;
       overflow: hidden;
+    }
+
+    /* Grid Matematika Kartesian Halus di Background (Estetik & Akademis) */
+    .math-grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(rgba(112, 85, 158, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Glow Ambient Halus */
+    .hero-ambient-glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(206, 187, 235, 0.35) 0%, rgba(250, 248, 252, 0) 70%);
+      top: 15%;
+      right: 10%;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .hero-container {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
-      gap: 48px;
+      gap: 50px;
       position: relative;
       z-index: 2;
     }
@@ -264,43 +322,48 @@
       color: var(--primary-purple);
       font-size: 0.85rem;
       font-weight: 600;
-      padding: 5px 14px;
+      padding: 6px 16px;
       border-radius: var(--radius-full);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-subtle);
     }
 
     .badge-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background-color: var(--primary-purple);
     }
 
     .hero-title {
-      font-size: 2.85rem;
-      letter-spacing: -0.8px;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      letter-spacing: -1.2px;
+      margin-bottom: 12px;
+      font-weight: 800;
     }
 
     .hero-subtitle {
-      font-size: 1.25rem;
-      font-weight: 500;
+      font-size: 1.3rem;
+      font-weight: 600;
       color: var(--primary-purple);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
     }
 
     .hero-desc {
       font-size: 1.05rem;
       color: var(--text-body);
-      max-width: 480px;
-      margin-bottom: 32px;
+      max-width: 500px;
+      margin-bottom: 34px;
+      line-height: 1.7;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
+      gap: 16px;
     }
 
+    /* FRAME FOTO ELEGAN (Natural, Tanpa Garis Putus-putus Kaku) */
     .hero-visual {
       display: flex;
       justify-content: center;
@@ -308,7 +371,7 @@
 
     .profile-card-wrapper {
       position: relative;
-      width: 320px;
+      width: 325px;
       max-width: 100%;
     }
 
@@ -317,59 +380,78 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       background-color: var(--accent-light);
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 20px 45px rgba(78, 52, 114, 0.12);
       z-index: 2;
       aspect-ratio: 4 / 5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 4px solid #ffffff;
+      border: 6px solid #ffffff;
+      transition: var(--transition);
+    }
+
+    .profile-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(78, 52, 114, 0.16);
     }
 
     .profile-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
     }
 
-    .profile-img:hover {
-      transform: scale(1.02);
+    .profile-frame:hover .profile-img {
+      transform: scale(1.03);
     }
 
-    .card-glow-accent {
+    /* Floating Status Chip di Atas Foto */
+    .floating-accent-tag {
       position: absolute;
-      top: 14px;
-      right: -12px;
+      bottom: -14px;
+      left: 20px;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .floating-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #10b981; /* Fresh green active dot */
+    }
+
+    .floating-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-headline);
+    }
+
+    /* Ambient card border */
+    .card-ambient-shadow {
+      position: absolute;
+      top: 15px;
+      left: 15px;
       width: 100%;
       height: 100%;
       border-radius: var(--radius-lg);
-      border: 2px dashed var(--primary-purple);
-      opacity: 0.35;
+      background: linear-gradient(135deg, rgba(167, 139, 219, 0.3) 0%, rgba(220, 203, 245, 0.1) 100%);
       z-index: 1;
+      filter: blur(8px);
     }
 
-    /* WATERMARK MATEMATIKA */
-    .math-watermark {
-      position: absolute;
-      font-family: serif;
-      user-select: none;
-      pointer-events: none;
-      color: var(--watermark-color);
-      z-index: 1;
-      font-weight: 300;
-    }
-
-    .wm-1 { top: 12%; left: 4%; font-size: 7.5rem; }
-    .wm-2 { bottom: 10%; left: 38%; font-size: 8rem; }
-    .wm-3 { top: 18%; right: 4%; font-size: 9rem; }
-    .wm-4 { bottom: 18%; right: 40%; font-size: 5rem; }
-    .wm-5 { top: 48%; left: 44%; font-size: 6rem; }
-
-    /* SECTION HEADERS */
+    /* ==========================================================================
+       SECTION HEADERS
+       ========================================================================== */
     .section-header {
       text-align: center;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 52px auto;
     }
 
@@ -378,15 +460,15 @@
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.8px;
       color: var(--primary-purple);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .section-title {
-      font-size: 2.15rem;
-      letter-spacing: -0.4px;
-      margin-bottom: 10px;
+      font-size: 2.25rem;
+      letter-spacing: -0.6px;
+      margin-bottom: 12px;
     }
 
     .section-subtitle {
@@ -397,12 +479,12 @@
     }
 
     .section-note {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
     }
 
     /* ==========================================================================
-       2. REFINED ABOUT ME (CUSTOM PARAGRAPHS & STRUCTURE)
+       2. ABOUT ME
        ========================================================================== */
     .about-main-wrapper {
       display: grid;
@@ -416,20 +498,20 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      padding: 40px 42px;
+      padding: 42px;
       box-shadow: var(--shadow-subtle);
     }
 
     .narrative-body p {
       font-size: 1rem;
       margin-bottom: 18px;
-      line-height: 1.75;
+      line-height: 1.78;
       color: var(--text-body);
     }
 
     .narrative-body p:first-child {
       color: var(--text-headline);
-      font-size: 1.05rem;
+      font-size: 1.06rem;
       font-weight: 500;
     }
 
@@ -451,11 +533,10 @@
       font-weight: 600;
       color: var(--primary-purple);
       background-color: var(--accent-light);
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-full);
     }
 
-    /* Side Cards on About Section */
     .about-side-cards {
       display: flex;
       flex-direction: column;
@@ -487,8 +568,8 @@
     .pill-icon {
       font-size: 1.3rem;
       background-color: var(--accent-light);
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
@@ -502,7 +583,7 @@
     .side-pill-card p {
       font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* 3. PERSONAL HIGHLIGHTS */
@@ -516,7 +597,7 @@
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 24px 20px;
+      padding: 26px 22px;
       transition: var(--transition);
     }
 
@@ -528,24 +609,26 @@
 
     .highlight-icon {
       font-size: 1.8rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .highlight-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       margin-bottom: 6px;
     }
 
     .highlight-card p {
       font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.48;
     }
 
-    /* 4. SKILLS SECTION */
+    /* ==========================================================================
+       4. SKILLS & APPLIED COMPETENCIES
+       ========================================================================== */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
     }
 
@@ -556,6 +639,8 @@
       padding: 28px 24px;
       box-shadow: var(--shadow-subtle);
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
     }
 
     .skill-category-card:hover {
@@ -568,23 +653,31 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .category-icon { font-size: 1.6rem; }
     .category-header h3 { font-size: 1.15rem; }
 
+    .category-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
     .badge-group {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-top: auto;
     }
 
     .skill-badge {
       background-color: var(--bg-surface);
       color: var(--text-headline);
       border: 1px solid var(--border-subtle);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 500;
       padding: 6px 14px;
       border-radius: var(--radius-full);
@@ -597,21 +690,31 @@
       color: var(--primary-purple);
     }
 
-    /* 5. SELECTED PROJECTS SECTION */
+    /* ==========================================================================
+       5. SELECTED PROJECTS
+       ========================================================================== */
+    .projects-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
     .featured-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-focus);
       border-radius: var(--radius-lg);
-      padding: 34px;
+      padding: 32px;
       position: relative;
       box-shadow: var(--shadow-card);
-      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
     }
 
     .featured-banner {
       position: absolute;
       top: 18px;
-      right: 24px;
+      right: 22px;
       background-color: var(--primary-purple);
       color: #ffffff;
       font-size: 0.75rem;
@@ -622,19 +725,13 @@
       border-radius: var(--radius-full);
     }
 
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 36px;
-      align-items: center;
-    }
-
     .featured-image-box {
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 1px solid var(--border-subtle);
       background-color: var(--bg-surface);
-      height: 270px;
+      height: 240px;
+      margin-bottom: 22px;
     }
 
     .featured-image-box img {
@@ -652,21 +749,21 @@
     }
 
     .featured-title {
-      font-size: 1.65rem;
-      margin-bottom: 12px;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
     }
 
     .project-desc {
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       color: var(--text-body);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.6;
     }
 
     .detail-block { margin-bottom: 14px; }
     .detail-block strong {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-headline);
       margin-bottom: 4px;
     }
@@ -681,57 +778,54 @@
       flex-wrap: wrap;
       gap: 6px;
       margin-top: 6px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .tool-tags span {
       font-size: 0.75rem;
       background-color: var(--bg-surface);
       color: var(--primary-purple);
-      padding: 3px 10px;
-      border-radius: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
       font-weight: 600;
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
+    .second-project-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       box-shadow: var(--shadow-subtle);
       transition: var(--transition);
+      padding: 32px;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
+    .second-project-card:hover {
+      transform: translateY(-4px);
       border-color: var(--border-focus);
       box-shadow: var(--shadow-hover);
     }
 
-    .project-thumb-box {
-      height: 165px;
+    .second-thumb-box {
+      border-radius: var(--radius-md);
+      height: 240px;
       background-color: var(--bg-surface);
       overflow: hidden;
-      position: relative;
+      margin-bottom: 22px;
+      border: 1px solid var(--border-subtle);
     }
 
-    .project-thumb-box img {
+    .second-thumb-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
 
-    .project-card:hover .project-thumb-box img {
-      transform: scale(1.04);
+    .second-project-card:hover .second-thumb-box img {
+      transform: scale(1.03);
     }
 
     .img-fallback {
@@ -742,45 +836,15 @@
       justify-content: center;
       padding: 20px;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--primary-purple);
       background: linear-gradient(135deg, #f1ecf9 0%, #e2d7f3 100%);
     }
 
-    .fallback-academic { background: linear-gradient(135deg, #f0eef5 0%, #dfd7ee 100%); }
-    .fallback-data { background: linear-gradient(135deg, #edf3f7 0%, #dae7f0 100%); color: #5d8aa8; }
-    .fallback-web { background: linear-gradient(135deg, #f6f0fa 0%, #e4daf1 100%); }
-
-    .project-card-body {
-      padding: 22px 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .project-category {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-    }
-
-    .card-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      line-height: 1.5;
-      flex-grow: 1;
-    }
-
-    /* 6. PUBLICATIONS SECTION */
+    /* ==========================================================================
+       6. PUBLICATIONS SECTION
+       ========================================================================== */
     .publications-list {
       display: flex;
       flex-direction: column;
@@ -821,7 +885,7 @@
       font-weight: 600;
       background-color: var(--bg-surface);
       color: var(--text-headline);
-      padding: 3px 12px;
+      padding: 4px 12px;
       border-radius: var(--radius-full);
     }
 
@@ -838,7 +902,7 @@
 
     .pub-title {
       font-size: 1.18rem;
-      line-height: 1.45;
+      line-height: 1.48;
       margin-bottom: 12px;
     }
 
@@ -859,7 +923,9 @@
       margin-bottom: 16px;
     }
 
-    /* 7. EDUCATION & LEARNING */
+    /* ==========================================================================
+       7. EDUCATION & LEARNING
+       ========================================================================== */
     .edu-learning-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -888,7 +954,7 @@
     .timeline-body {
       background-color: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      padding: 24px;
+      padding: 26px;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-subtle);
     }
@@ -916,7 +982,7 @@
     .timeline-text {
       font-size: 0.88rem;
       color: var(--text-body);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .learning-card-box {
@@ -961,7 +1027,9 @@
       font-size: 1.2rem;
     }
 
-    /* 8. CONTACT */
+    /* ==========================================================================
+       8. CONTACT
+       ========================================================================== */
     .contact-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-focus);
@@ -1030,7 +1098,9 @@
       color: var(--text-headline);
     }
 
-    /* FOOTER */
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
     .footer {
       padding: 36px 0;
       border-top: 1px solid var(--border-subtle);
@@ -1116,9 +1186,9 @@
       .hero-desc { margin: 0 auto 32px auto; }
       .hero-actions { justify-content: center; }
       .hero-visual { order: -1; }
-      .profile-card-wrapper { width: 260px; }
+      .profile-card-wrapper { width: 270px; }
       .about-main-wrapper { grid-template-columns: 1fr; }
-      .featured-grid { grid-template-columns: 1fr; }
+      .projects-layout { grid-template-columns: 1fr; }
       .edu-learning-layout { grid-template-columns: 1fr; }
     }
 
@@ -1126,7 +1196,7 @@
       .nav-toggle { display: block; }
       .nav-menu {
         position: fixed;
-        top: 72px;
+        top: 76px;
         left: 0;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.98);
@@ -1144,7 +1214,7 @@
         align-items: flex-start;
       }
       .nav-btn-cta { width: 100%; text-align: center; }
-      .hero-title { font-size: 2.2rem; }
+      .hero-title { font-size: 2.3rem; }
       .section-title { font-size: 1.85rem; }
       .about-narrative-card { padding: 28px 22px; }
       .contact-card { padding: 40px 20px; }
@@ -1161,7 +1231,8 @@
   <header class="header" id="header">
     <div class="container nav-container">
       <a href="#home" class="logo">
-        <span class="logo-symbol">∑</span> TABITHA GABRIELA
+        <div class="brand-mark">TG</div>
+        <div class="brand-text">TABITHA <span>GABRIELA</span></div>
       </a>
 
       <!-- Hamburger Button -->
@@ -1187,24 +1258,21 @@
   </header>
 
   <main>
-    <!-- ================= 1. HERO SECTION ================= -->
+    <!-- ================= 1. HERO SECTION (REFINED) ================= -->
     <section class="hero" id="home">
-      <!-- Watermark Matematika Halus -->
-      <div class="math-watermark wm-1">π</div>
-      <div class="math-watermark wm-2">√</div>
-      <div class="math-watermark wm-3">∑</div>
-      <div class="math-watermark wm-4">x²</div>
-      <div class="math-watermark wm-5">∞</div>
+      <!-- Grid Geometri Matematika Estetik Halus -->
+      <div class="math-grid-bg"></div>
+      <div class="hero-ambient-glow"></div>
 
       <div class="container hero-container">
         <div class="hero-content reveal">
           <div class="hero-badge">
-            <span class="badge-dot"></span> Hi, I'm
+            <span class="badge-dot"></span> Undergraduate Portfolio
           </div>
           <h1 class="hero-title">Tabitha Gabriela Sianipar</h1>
           <h2 class="hero-subtitle">Mathematics Education Student</h2>
           <p class="hero-desc">
-            An aspiring mathematics educator interested in education, technology, and creative digital learning.
+            An aspiring mathematics educator passionate about visual learning, digital media development, and educational research.
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">Explore My Work</a>
@@ -1214,6 +1282,7 @@
 
         <div class="hero-visual reveal">
           <div class="profile-card-wrapper">
+            <div class="card-ambient-shadow"></div>
             <div class="profile-frame">
               <img 
                 src="images/profile.jpg" 
@@ -1222,7 +1291,11 @@
                 onerror="this.style.display='none';"
               />
             </div>
-            <div class="card-glow-accent"></div>
+            <!-- Status Badge Natural -->
+            <div class="floating-accent-tag">
+              <span class="floating-dot"></span>
+              <span class="floating-text">Bilingual Math Ed • UNIMED</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1238,7 +1311,6 @@
         </div>
 
         <div class="about-main-wrapper">
-          <!-- Kolom Kiri: Teks About Me Persis Sesuai Permintaan -->
           <div class="about-narrative-card reveal">
             <div class="narrative-body">
               <p>
@@ -1255,7 +1327,6 @@
               </p>
             </div>
 
-            <!-- Mini Badges Pembelajaran -->
             <div class="about-focus-tags">
               <span class="focus-tag-chip">✦ Visual Mathematics</span>
               <span class="focus-tag-chip">✦ Assemblr Edu & AR</span>
@@ -1264,35 +1335,33 @@
             </div>
           </div>
 
-          <!-- Kolom Kanan: Side Pillars Pendamping -->
           <div class="about-side-cards reveal">
             <div class="side-pill-card">
               <div class="pill-header">
                 <span class="pill-icon">📐</span>
-                <h4>Visual & Interactive Tools</h4>
+                <h4>Visual & Interactive Learning</h4>
               </div>
-              <p>Mengembangkan manipulatif virtual dan visualisasi konsep dinamis menggunakan GeoGebra, Mathigon Polypad, dan Assemblr Edu (AR).</p>
+              <p>Mengeksplorasi manipulatif virtual dan representasi visual untuk memudahkan konsep abstrak matematika melalui GeoGebra, Polypad, dan Augmented Reality.</p>
             </div>
 
             <div class="side-pill-card">
               <div class="pill-header">
                 <span class="pill-icon">💻</span>
-                <h4>Learning Platform (LMS)</h4>
+                <h4>LMS Development</h4>
               </div>
-              <p>Merancang MATHIFY sebagai media pembelajaran berbasis website agar materi belajar dapat diakses siswa secara mandiri dan interaktif.</p>
+              <p>Merancang platform belajar terstruktur melalui Google Sites (MATHIFY) agar bahan ajar, pre-test, dan materi dapat dipelajari secara interaktif.</p>
             </div>
 
             <div class="side-pill-card">
               <div class="pill-header">
                 <span class="pill-icon">📊</span>
-                <h4>Data & Statistical Analysis</h4>
+                <h4>Statistical Coursework</h4>
               </div>
-              <p>Mempraktikkan pengolahan data statistik kuantitatif menggunakan Jamovi dan SPSS dalam rangka tugas mata kuliah dan penelitian akademik.</p>
+              <p>Mempraktikkan pengolahan data statistik kuantitatif menggunakan Jamovi dan SPSS untuk kebutuhan tugas kuliah serta penulisan artikel ilmiah.</p>
             </div>
           </div>
         </div>
 
-        <!-- 3. PERSONAL HIGHLIGHTS CARDS -->
         <div class="highlights-grid">
           <div class="highlight-card reveal">
             <div class="highlight-icon">📐</div>
@@ -1318,42 +1387,56 @@
       </div>
     </section>
 
-    <!-- ================= 4. SKILLS SECTION ================= -->
+    <!-- ================= 3. SKILLS SECTION ================= -->
     <section class="section skills-section" id="skills">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Competencies</span>
-          <h2 class="section-title">Skills & Interests</h2>
+          <h2 class="section-title">Skills & Learning Areas</h2>
+          <p class="section-note">Kemampuan akademik, perangkat media belajar interaktif, dan analisis data selama perkuliahan.</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-category-card reveal">
             <div class="category-header">
               <span class="category-icon">📚</span>
-              <h3>Mathematics & Education</h3>
+              <h3>Math & Pedagogy</h3>
             </div>
+            <p class="category-desc">Pemahaman konsep matematika dasar dan strategi pengajaran aktif.</p>
             <div class="badge-group">
               <span class="skill-badge">Mathematics Education</span>
               <span class="skill-badge">Mathematical Thinking</span>
-              <span class="skill-badge">Educational Research</span>
-              <span class="skill-badge">Learning Media Development</span>
+              <span class="skill-badge">Lesson Plan Design</span>
+              <span class="skill-badge">Differentiated Learning</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <span class="category-icon">📐</span>
+              <h3>Interactive Media</h3>
+            </div>
+            <p class="category-desc">Eksplorasi manipulatif digital untuk visualisasi konsep geometri dan aljabar.</p>
+            <div class="badge-group">
+              <span class="skill-badge">GeoGebra</span>
+              <span class="skill-badge">Mathigon Polypad</span>
+              <span class="skill-badge">Assemblr Edu (AR)</span>
+              <span class="skill-badge">Virtual Manipulatives</span>
             </div>
           </div>
 
           <div class="skill-category-card reveal">
             <div class="category-header">
               <span class="category-icon">🎨</span>
-              <h3>Digital Tools</h3>
+              <h3>Digital & Web Tools</h3>
             </div>
+            <p class="category-desc">Pembuatan modul bahan ajar visual dan platform website edukasi.</p>
             <div class="badge-group">
-              <span class="skill-badge">Google Sites</span>
+              <span class="skill-badge">Google Sites (LMS)</span>
               <span class="skill-badge">Canva</span>
-              <span class="skill-badge">GeoGebra</span>
-              <span class="skill-badge">Assemblr Edu</span>
-              <span class="skill-badge">Mathigon Polypad</span>
-              <span class="skill-badge">Microsoft Office</span>
               <span class="skill-badge">HTML & CSS</span>
               <span class="skill-badge">JavaScript — Basic</span>
+              <span class="skill-badge">Microsoft Office</span>
             </div>
           </div>
 
@@ -1362,32 +1445,33 @@
               <span class="category-icon">📊</span>
               <h3>Data & Research</h3>
             </div>
+            <p class="category-desc">Analisis statistik kuantitatif untuk tugas riset dan pengolahan data pendidikan.</p>
             <div class="badge-group">
               <span class="skill-badge">Jamovi</span>
               <span class="skill-badge">SPSS — Basic</span>
-              <span class="skill-badge">Quantitative Research</span>
-              <span class="skill-badge">Data Analysis</span>
+              <span class="skill-badge">Quantitative Analysis</span>
+              <span class="skill-badge">Educational Research</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 5. SELECTED PROJECTS ================= -->
+    <!-- ================= 4. SELECTED PROJECTS (HANYA PROYEK ASLI) ================= -->
     <section class="section projects-section" id="projects">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">Academic Work</span>
+          <span class="section-tag">Featured Work</span>
           <h2 class="section-title">Selected Projects</h2>
           <p class="section-note">
-            A selection of academic, coursework, and personal learning projects developed during my studies.
+            Proyek digital yang telah saya rancang dan dapat diakses langsung secara online.
           </p>
         </div>
 
-        <!-- Featured Project (LMS MATHIFY) -->
-        <div class="featured-card reveal">
-          <div class="featured-banner">Featured Project</div>
-          <div class="featured-grid">
+        <div class="projects-layout">
+          <!-- Featured Project: LMS MATHIFY -->
+          <div class="featured-card reveal">
+            <div class="featured-banner">Featured Project</div>
             <div class="featured-image-box">
               <img 
                 src="images/mathify-preview.jpg" 
@@ -1403,7 +1487,7 @@
               <span class="project-tag">Mathematics Learning Website</span>
               <h3 class="featured-title">LMS MATHIFY</h3>
               <p class="project-desc">
-                LMS MATHIFY is a digital mathematics learning website created using Google Sites to provide a more interactive and engaging learning experience.
+                Platform pembelajaran matematika digital yang dirancang menggunakan Google Sites untuk menyajikan materi Bangun Ruang secara lebih terstruktur, interaktif, dan mudah diakses siswa.
               </p>
               
               <div class="detail-block">
@@ -1426,13 +1510,10 @@
               </a>
             </div>
           </div>
-        </div>
 
-        <!-- Other Projects Grid -->
-        <div class="projects-grid">
-          <!-- Project 02: Personal Profile Website -->
-          <article class="project-card reveal">
-            <div class="project-thumb-box">
+          <!-- Project 2: Personal Profile Website (Carrd) -->
+          <article class="second-project-card reveal">
+            <div class="second-thumb-box">
               <img 
                 src="images/carrd-preview.jpg" 
                 alt="Personal Profile Website Carrd Preview" 
@@ -1444,107 +1525,21 @@
               </div>
             </div>
             <div class="project-card-body">
-              <span class="project-category">Personal Web Profile</span>
-              <h3 class="card-title">Personal Profile Website</h3>
-              <p class="card-desc">
-                A personal profile website created using Carrd to introduce my background, interests, and personal identity.
+              <span class="project-tag">Personal Web Profile</span>
+              <h3 class="featured-title" style="font-size: 1.35rem;">Personal Profile Website</h3>
+              <p class="project-desc">
+                Website profil personal yang dibuat menggunakan Carrd untuk memperkenalkan identitas diri, latar belakang studi, dan ketertarikan akademik saya.
               </p>
-              <div class="tool-tags">
-                <span>Carrd</span>
-                <span>Web Design</span>
+              <div class="detail-block">
+                <strong>Tools:</strong>
+                <div class="tool-tags">
+                  <span>Carrd</span>
+                  <span>Web Design</span>
+                  <span>Visual Branding</span>
+                </div>
               </div>
-              <a href="https://tabitha1.carrd.co/" target="_blank" rel="noopener noreferrer" class="link-action">
+              <a href="https://tabitha1.carrd.co/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="margin-top: auto;">
                 View Website →
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 03: Interactive Mathematics Learning Media -->
-          <article class="project-card reveal">
-            <div class="project-thumb-box">
-              <img 
-                src="images/project-media.jpg" 
-                alt="Interactive Mathematics Learning Media" 
-                class="project-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="img-fallback fallback-academic">
-                <span>Interactive Learning Media</span>
-              </div>
-            </div>
-            <div class="project-card-body">
-              <span class="project-category">Academic Project</span>
-              <h3 class="card-title">Interactive Mathematics Learning Media</h3>
-              <p class="card-desc">
-                An academic project exploring the use of interactive digital media to present mathematics concepts in a more engaging and understandable way.
-              </p>
-              <div class="tool-tags">
-                <span>Canva</span>
-                <span>Digital Learning Media</span>
-                <span>Mathematics Education</span>
-              </div>
-              <a href="#contact" class="link-action">
-                View Project Details →
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 04: Statistical Data Analysis -->
-          <article class="project-card reveal">
-            <div class="project-thumb-box">
-              <img 
-                src="images/project-data.jpg" 
-                alt="Statistical Data Analysis" 
-                class="project-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="img-fallback fallback-data">
-                <span>Statistical Data Analysis</span>
-              </div>
-            </div>
-            <div class="project-card-body">
-              <span class="project-category">Coursework Project</span>
-              <h3 class="card-title">Statistical Data Analysis</h3>
-              <p class="card-desc">
-                A coursework project involving basic statistical analysis and interpretation of educational data using statistical software.
-              </p>
-              <div class="tool-tags">
-                <span>Jamovi</span>
-                <span>SPSS</span>
-                <span>Data Analysis</span>
-              </div>
-              <a href="#contact" class="link-action">
-                View Project Details →
-              </a>
-            </div>
-          </article>
-
-          <!-- Project 05: Mathematics Learning Web Concept -->
-          <article class="project-card reveal">
-            <div class="project-thumb-box">
-              <img 
-                src="images/project-web.jpg" 
-                alt="Mathematics Learning Web Concept" 
-                class="project-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="img-fallback fallback-web">
-                <span>Web Learning Concept</span>
-              </div>
-            </div>
-            <div class="project-card-body">
-              <span class="project-category">Academic / Learning Project</span>
-              <h3 class="card-title">Mathematics Learning Web Concept</h3>
-              <p class="card-desc">
-                A small web development project exploring how HTML, CSS, and JavaScript can be used to create a simple educational website.
-              </p>
-              <div class="tool-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-              <a href="#contact" class="link-action">
-                View Project Details →
               </a>
             </div>
           </article>
@@ -1552,7 +1547,7 @@
       </div>
     </section>
 
-    <!-- ================= 6. PUBLICATIONS SECTION ================= -->
+    <!-- ================= 5. PUBLICATIONS SECTION ================= -->
     <section class="section publications-section" id="publications">
       <div class="container">
         <div class="section-header reveal">
@@ -1565,7 +1560,6 @@
         </div>
 
         <div class="publications-list">
-          <!-- Publication 01 (Co-authored / Ditekankan) -->
           <article class="publication-card publication-primary reveal">
             <div class="pub-badge-wrapper">
               <span class="pub-type-badge highlight-badge">Co-authored Publication</span>
@@ -1590,7 +1584,6 @@
             </div>
           </article>
 
-          <!-- Publication 02 -->
           <article class="publication-card reveal">
             <div class="pub-badge-wrapper">
               <span class="pub-type-badge">Collaborative Publication</span>
@@ -1614,7 +1607,6 @@
             </div>
           </article>
 
-          <!-- Publication 03 -->
           <article class="publication-card reveal">
             <div class="pub-badge-wrapper">
               <span class="pub-type-badge">Collaborative Publication</span>
@@ -1637,7 +1629,6 @@
             </div>
           </article>
 
-          <!-- Publication 04 -->
           <article class="publication-card reveal">
             <div class="pub-badge-wrapper">
               <span class="pub-type-badge">Collaborative Publication</span>
@@ -1665,7 +1656,7 @@
       </div>
     </section>
 
-    <!-- ================= 7. EDUCATION & CURRENTLY LEARNING ================= -->
+    <!-- ================= 6. EDUCATION & CURRENTLY LEARNING ================= -->
     <section class="section education-section" id="education">
       <div class="container">
         <div class="edu-learning-layout">
@@ -1710,7 +1701,7 @@
       </div>
     </section>
 
-    <!-- ================= 8. CONTACT SECTION ================= -->
+    <!-- ================= 7. CONTACT SECTION ================= -->
     <section class="section contact-section" id="contact">
       <div class="container">
         <div class="contact-card reveal">
@@ -1749,6 +1740,7 @@
       <nav class="footer-links" aria-label="Footer Navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
