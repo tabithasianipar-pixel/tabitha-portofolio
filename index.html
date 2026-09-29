@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabitha Gabriela Sianipar | Mathematics Education</title>
+  
+  <!-- Font Google: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME (Soft Lavender, Deep Plum, & Crisp White)
+       ========================================================================== */
+    :root {
+      --bg-body: #f8f6fc;
+      --bg-card: #ffffff;
+      --bg-surface: #f2ecf9;
+      --primary-purple: #70559e;
+      --primary-hover: #5a4282;
+      --text-headline: #281e3a;
+      --text-body: #473d5a;
+      --text-muted: #796f8c;
+      --accent-light: #eee7f7;
+      --border-subtle: #e6dfef;
+      --border-focus: #cbbde0;
+      --watermark-color: rgba(144, 126, 179, 0.08);
+
+      --font-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-subtle: 0 4px 18px rgba(70, 48, 102, 0.04);
+      --shadow-card: 0 10px 28px rgba(70, 48, 102, 0.06);
+      --shadow-hover: 0 16px 36px rgba(112, 85, 158, 0.14);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-base);
+      background-color: var(--bg-body);
+      color: var(--text-body);
+      line-height: 1.68;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--text-headline);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul { list-style: none; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 95px 0;
+      position: relative;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-purple);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(112, 85, 158, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(112, 85, 158, 0.32);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-headline);
+      border-color: var(--border-focus);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary-purple);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 9px 18px;
+      font-size: 0.85rem;
+    }
+
+    .link-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--primary-purple);
+      margin-top: auto;
+    }
+
+    .link-action:hover {
+      color: var(--primary-hover);
+      transform: translateX(4px);
+    }
+
+    /* HEADER & NAVBAR */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(248, 246, 252, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .header.scrolled {
+      background-color: rgba(255, 255, 255, 0.96);
+      border-bottom-color: var(--border-subtle);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-headline);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-symbol {
+      color: var(--primary-purple);
+      font-size: 1.3rem;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-purple);
+    }
+
+    .nav-btn-cta {
+      background-color: var(--accent-light);
+      color: var(--primary-purple) !important;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    .nav-btn-cta:hover {
+      background-color: var(--primary-purple);
+      color: #ffffff !important;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-headline);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    /* 1. HERO SECTION */
+    .hero {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      padding-top: 75px;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent-light);
+      color: var(--primary-purple);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 18px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary-purple);
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--primary-purple);
+      margin-bottom: 18px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card-wrapper {
+      position: relative;
+      width: 320px;
+      max-width: 100%;
+    }
+
+    .profile-frame {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--accent-light);
+      box-shadow: var(--shadow-card);
+      z-index: 2;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #ffffff;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.02);
+    }
+
+    .card-glow-accent {
+      position: absolute;
+      top: 14px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--primary-purple);
+      opacity: 0.35;
+      z-index: 1;
+    }
+
+    /* WATERMARK MATEMATIKA */
+    .math-watermark {
+      position: absolute;
+      font-family: serif;
+      user-select: none;
+      pointer-events: none;
+      color: var(--watermark-color);
+      z-index: 1;
+      font-weight: 300;
+    }
+
+    .wm-1 { top: 12%; left: 4%; font-size: 7.5rem; }
+    .wm-2 { bottom: 10%; left: 38%; font-size: 8rem; }
+    .wm-3 { top: 18%; right: 4%; font-size: 9rem; }
+    .wm-4 { bottom: 18%; right: 40%; font-size: 5rem; }
+    .wm-5 { top: 48%; left: 44%; font-size: 6rem; }
+
+    /* SECTION HEADERS */
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 52px auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      color: var(--primary-purple);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 2.15rem;
+      letter-spacing: -0.4px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-purple);
+      margin-bottom: 6px;
+    }
+
+    .section-note {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       2. REFINED ABOUT ME (CUSTOM PARAGRAPHS & STRUCTURE)
+       ========================================================================== */
+    .about-main-wrapper {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 36px;
+      margin-bottom: 40px;
+      align-items: start;
+    }
+
+    .about-narrative-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 40px 42px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .narrative-body p {
+      font-size: 1rem;
+      margin-bottom: 18px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    .narrative-body p:first-child {
+      color: var(--text-headline);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .narrative-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-focus-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .focus-tag-chip {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-purple);
+      background-color: var(--accent-light);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Side Cards on About Section */
+    .about-side-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .side-pill-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+    }
+
+    .side-pill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow-card);
+    }
+
+    .pill-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .pill-icon {
+      font-size: 1.3rem;
+      background-color: var(--accent-light);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pill-header h4 {
+      font-size: 1.05rem;
+    }
+
+    .side-pill-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 3. PERSONAL HIGHLIGHTS */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .highlight-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      transition: var(--transition);
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow-card);
+    }
+
+    .highlight-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .highlight-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* 4. SKILLS SECTION */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+    }
+
+    .skill-category-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .category-icon { font-size: 1.6rem; }
+    .category-header h3 { font-size: 1.15rem; }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-badge {
+      background-color: var(--bg-surface);
+      color: var(--text-headline);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+    }
+
+    .skill-badge:hover {
+      background-color: var(--accent-light);
+      border-color: var(--primary-purple);
+      color: var(--primary-purple);
+    }
+
+    /* 5. SELECTED PROJECTS SECTION */
+    .featured-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-focus);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 40px;
+    }
+
+    .featured-banner {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      background-color: var(--primary-purple);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .featured-image-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      height: 270px;
+    }
+
+    .featured-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-purple);
+      margin-bottom: 6px;
+    }
+
+    .featured-title {
+      font-size: 1.65rem;
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .detail-block { margin-bottom: 14px; }
+    .detail-block strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-headline);
+      margin-bottom: 4px;
+    }
+
+    .detail-block p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tool-tags span {
+      font-size: 0.75rem;
+      background-color: var(--bg-surface);
+      color: var(--primary-purple);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-thumb-box {
+      height: 165px;
+      background-color: var(--bg-surface);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-thumb-box img {
+      transform: scale(1.04);
+    }
+
+    .img-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-purple);
+      background: linear-gradient(135deg, #f1ecf9 0%, #e2d7f3 100%);
+    }
+
+    .fallback-academic { background: linear-gradient(135deg, #f0eef5 0%, #dfd7ee 100%); }
+    .fallback-data { background: linear-gradient(135deg, #edf3f7 0%, #dae7f0 100%); color: #5d8aa8; }
+    .fallback-web { background: linear-gradient(135deg, #f6f0fa 0%, #e4daf1 100%); }
+
+    .project-card-body {
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    /* 6. PUBLICATIONS SECTION */
+    .publications-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .publication-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--border-focus);
+      border-radius: var(--radius-sm);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+    }
+
+    .publication-card:hover {
+      transform: translateY(-3px);
+      border-left-color: var(--primary-purple);
+      box-shadow: var(--shadow-card);
+    }
+
+    .publication-primary {
+      border-left: 5px solid var(--primary-purple);
+      background-color: #ffffff;
+      box-shadow: var(--shadow-card);
+    }
+
+    .pub-badge-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .pub-type-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: var(--bg-surface);
+      color: var(--text-headline);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .highlight-badge {
+      background-color: var(--accent-light);
+      color: var(--primary-purple);
+    }
+
+    .pub-year {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-purple);
+    }
+
+    .pub-title {
+      font-size: 1.18rem;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .pub-authors {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      margin-bottom: 12px;
+    }
+
+    .pub-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+
+    /* 7. EDUCATION & LEARNING */
+    .edu-learning-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border-subtle);
+      margin-left: 12px;
+      padding-left: 26px;
+    }
+
+    .timeline-item { position: relative; }
+    .timeline-marker {
+      position: absolute;
+      left: -33px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--primary-purple);
+      box-shadow: 0 0 0 4px var(--accent-light);
+    }
+
+    .timeline-body {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .timeline-period {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-purple);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .timeline-inst {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-prog {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .timeline-text {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    .learning-card-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .learning-quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--primary-purple);
+      font-weight: 500;
+      margin-bottom: 20px;
+      border-left: 3px solid var(--primary-purple);
+      padding-left: 12px;
+    }
+
+    .learning-items-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .learn-chip {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-headline);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .learn-chip span {
+      color: var(--primary-purple);
+      font-size: 1.2rem;
+    }
+
+    /* 8. CONTACT */
+    .contact-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-focus);
+      border-radius: var(--radius-lg);
+      padding: 55px 35px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .contact-heading {
+      font-size: 1.85rem;
+      margin: 10px auto 14px auto;
+      max-width: 580px;
+    }
+
+    .contact-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 34px auto;
+    }
+
+    .contact-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .contact-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      transition: var(--transition);
+    }
+
+    .contact-action-btn:hover {
+      background-color: var(--accent-light);
+      border-color: var(--primary-purple);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      color: var(--primary-purple);
+    }
+
+    .channel-label {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .channel-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-headline);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-body);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-purple);
+    }
+
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--primary-purple);
+      color: #ffffff;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(78, 52, 114, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+      }
+      .hero-desc { margin: 0 auto 32px auto; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { order: -1; }
+      .profile-card-wrapper { width: 260px; }
+      .about-main-wrapper { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .edu-learning-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 24px;
+        box-shadow: var(--shadow-card);
+        transform: translateY(-130%);
+        transition: transform 0.35s ease-in-out;
+      }
+      .nav-menu.open { transform: translateY(0); }
+      .nav-list {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .nav-btn-cta { width: 100%; text-align: center; }
+      .hero-title { font-size: 2.2rem; }
+      .section-title { font-size: 1.85rem; }
+      .about-narrative-card { padding: 28px 22px; }
+      .contact-card { padding: 40px 20px; }
+      .contact-links-grid { flex-direction: column; }
+      .contact-action-btn { width: 100%; }
+      .learning-items-wrap { grid-template-columns: 1fr; }
+      .footer-content { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= STICKY HEADER & NAVBAR ================= -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-symbol">∑</span> TABITHA GABRIELA
+      </a>
+
+      <!-- Hamburger Button -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Nav Items -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link nav-btn-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= 1. HERO SECTION ================= -->
+    <section class="hero" id="home">
+      <!-- Watermark Matematika Halus -->
+      <div class="math-watermark wm-1">π</div>
+      <div class="math-watermark wm-2">√</div>
+      <div class="math-watermark wm-3">∑</div>
+      <div class="math-watermark wm-4">x²</div>
+      <div class="math-watermark wm-5">∞</div>
+
+      <div class="container hero-container">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <span class="badge-dot"></span> Hi, I'm
+          </div>
+          <h1 class="hero-title">Tabitha Gabriela Sianipar</h1>
+          <h2 class="hero-subtitle">Mathematics Education Student</h2>
+          <p class="hero-desc">
+            An aspiring mathematics educator interested in education, technology, and creative digital learning.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="profile-card-wrapper">
+            <div class="profile-frame">
+              <img 
+                src="images/profile.jpg" 
+                alt="Tabitha Gabriela Sianipar" 
+                class="profile-img"
+                onerror="this.style.display='none';"
+              />
+            </div>
+            <div class="card-glow-accent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. ABOUT ME ================= -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Bridging Mathematics & Creative Digital Learning</h2>
+          <p class="section-note">An overview of my academic interests, digital exploration, and educational vision.</p>
+        </div>
+
+        <div class="about-main-wrapper">
+          <!-- Kolom Kiri: Teks About Me Persis Sesuai Permintaan -->
+          <div class="about-narrative-card reveal">
+            <div class="narrative-body">
+              <p>
+                Hello! I’m <strong>Tabitha Gabriela Sianipar</strong>, a Mathematics Education student at Universitas Negeri Medan. I’m interested in mathematics, educational technology, and creating learning experiences that are more visual and engaging.
+              </p>
+              <p>
+                During my studies, I’ve explored different ways to combine mathematics with digital tools. I enjoy creating visual learning materials, interactive media, and digital learning resources using tools such as <strong>Canva, Assemblr Edu, GeoGebra, and Mathigon Polypad</strong>. I also developed <strong>MATHIFY</strong>, a simple LMS project designed to support mathematics learning.
+              </p>
+              <p>
+                I’m also interested in data analysis and educational research. I have experience working with <strong>Jamovi and SPSS</strong> for statistical analysis as part of my coursework and academic projects. I enjoy learning new tools, experimenting with ideas, and turning what I learn into practical educational projects.
+              </p>
+              <p>
+                As a student, I’m still exploring and developing my skills. My goal is to keep learning, create meaningful educational media, and find better ways to make mathematics easier and more interesting to learn.
+              </p>
+            </div>
+
+            <!-- Mini Badges Pembelajaran -->
+            <div class="about-focus-tags">
+              <span class="focus-tag-chip">✦ Visual Mathematics</span>
+              <span class="focus-tag-chip">✦ Assemblr Edu & AR</span>
+              <span class="focus-tag-chip">✦ GeoGebra & Polypad</span>
+              <span class="focus-tag-chip">✦ Jamovi & SPSS Analysis</span>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Side Pillars Pendamping -->
+          <div class="about-side-cards reveal">
+            <div class="side-pill-card">
+              <div class="pill-header">
+                <span class="pill-icon">📐</span>
+                <h4>Visual & Interactive Tools</h4>
+              </div>
+              <p>Mengembangkan manipulatif virtual dan visualisasi konsep dinamis menggunakan GeoGebra, Mathigon Polypad, dan Assemblr Edu (AR).</p>
+            </div>
+
+            <div class="side-pill-card">
+              <div class="pill-header">
+                <span class="pill-icon">💻</span>
+                <h4>Learning Platform (LMS)</h4>
+              </div>
+              <p>Merancang MATHIFY sebagai media pembelajaran berbasis website agar materi belajar dapat diakses siswa secara mandiri dan interaktif.</p>
+            </div>
+
+            <div class="side-pill-card">
+              <div class="pill-header">
+                <span class="pill-icon">📊</span>
+                <h4>Data & Statistical Analysis</h4>
+              </div>
+              <p>Mempraktikkan pengolahan data statistik kuantitatif menggunakan Jamovi dan SPSS dalam rangka tugas mata kuliah dan penelitian akademik.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. PERSONAL HIGHLIGHTS CARDS -->
+        <div class="highlights-grid">
+          <div class="highlight-card reveal">
+            <div class="highlight-icon">📐</div>
+            <h3>Mathematics</h3>
+            <p>Exploring mathematics concepts and mathematical thinking.</p>
+          </div>
+          <div class="highlight-card reveal">
+            <div class="highlight-icon">🎓</div>
+            <h3>Education</h3>
+            <p>Interested in creating meaningful learning experiences.</p>
+          </div>
+          <div class="highlight-card reveal">
+            <div class="highlight-icon">💻</div>
+            <h3>Technology</h3>
+            <p>Exploring digital tools for education.</p>
+          </div>
+          <div class="highlight-card reveal">
+            <div class="highlight-icon">✨</div>
+            <h3>Creativity</h3>
+            <p>Enjoy creating visual and interactive learning media.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. SKILLS SECTION ================= -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Competencies</span>
+          <h2 class="section-title">Skills & Interests</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <span class="category-icon">📚</span>
+              <h3>Mathematics & Education</h3>
+            </div>
+            <div class="badge-group">
+              <span class="skill-badge">Mathematics Education</span>
+              <span class="skill-badge">Mathematical Thinking</span>
+              <span class="skill-badge">Educational Research</span>
+              <span class="skill-badge">Learning Media Development</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <h3>Digital Tools</h3>
+            </div>
+            <div class="badge-group">
+              <span class="skill-badge">Google Sites</span>
+              <span class="skill-badge">Canva</span>
+              <span class="skill-badge">GeoGebra</span>
+              <span class="skill-badge">Assemblr Edu</span>
+              <span class="skill-badge">Mathigon Polypad</span>
+              <span class="skill-badge">Microsoft Office</span>
+              <span class="skill-badge">HTML & CSS</span>
+              <span class="skill-badge">JavaScript — Basic</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <span class="category-icon">📊</span>
+              <h3>Data & Research</h3>
+            </div>
+            <div class="badge-group">
+              <span class="skill-badge">Jamovi</span>
+              <span class="skill-badge">SPSS — Basic</span>
+              <span class="skill-badge">Quantitative Research</span>
+              <span class="skill-badge">Data Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. SELECTED PROJECTS ================= -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Academic Work</span>
+          <h2 class="section-title">Selected Projects</h2>
+          <p class="section-note">
+            A selection of academic, coursework, and personal learning projects developed during my studies.
+          </p>
+        </div>
+
+        <!-- Featured Project (LMS MATHIFY) -->
+        <div class="featured-card reveal">
+          <div class="featured-banner">Featured Project</div>
+          <div class="featured-grid">
+            <div class="featured-image-box">
+              <img 
+                src="images/mathify-preview.jpg" 
+                alt="LMS MATHIFY Google Site Preview"
+                class="project-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="img-fallback">
+                <span>📐 LMS MATHIFY</span>
+              </div>
+            </div>
+            <div class="featured-content">
+              <span class="project-tag">Mathematics Learning Website</span>
+              <h3 class="featured-title">LMS MATHIFY</h3>
+              <p class="project-desc">
+                LMS MATHIFY is a digital mathematics learning website created using Google Sites to provide a more interactive and engaging learning experience.
+              </p>
+              
+              <div class="detail-block">
+                <strong>Focus:</strong>
+                <p>Mathematics Education, Digital Learning, Interactive Learning, Educational Technology</p>
+              </div>
+
+              <div class="detail-block">
+                <strong>Tools:</strong>
+                <div class="tool-tags">
+                  <span>Google Sites</span>
+                  <span>Canva</span>
+                  <span>Augmented Reality</span>
+                  <span>AI-assisted learning</span>
+                </div>
+              </div>
+
+              <a href="https://sites.google.com/view/lms-madebytabitha/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                View Project →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 02: Personal Profile Website -->
+          <article class="project-card reveal">
+            <div class="project-thumb-box">
+              <img 
+                src="images/carrd-preview.jpg" 
+                alt="Personal Profile Website Carrd Preview" 
+                class="project-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="img-fallback">
+                <span>Personal Profile Website</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-category">Personal Web Profile</span>
+              <h3 class="card-title">Personal Profile Website</h3>
+              <p class="card-desc">
+                A personal profile website created using Carrd to introduce my background, interests, and personal identity.
+              </p>
+              <div class="tool-tags">
+                <span>Carrd</span>
+                <span>Web Design</span>
+              </div>
+              <a href="https://tabitha1.carrd.co/" target="_blank" rel="noopener noreferrer" class="link-action">
+                View Website →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 03: Interactive Mathematics Learning Media -->
+          <article class="project-card reveal">
+            <div class="project-thumb-box">
+              <img 
+                src="images/project-media.jpg" 
+                alt="Interactive Mathematics Learning Media" 
+                class="project-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="img-fallback fallback-academic">
+                <span>Interactive Learning Media</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-category">Academic Project</span>
+              <h3 class="card-title">Interactive Mathematics Learning Media</h3>
+              <p class="card-desc">
+                An academic project exploring the use of interactive digital media to present mathematics concepts in a more engaging and understandable way.
+              </p>
+              <div class="tool-tags">
+                <span>Canva</span>
+                <span>Digital Learning Media</span>
+                <span>Mathematics Education</span>
+              </div>
+              <a href="#contact" class="link-action">
+                View Project Details →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 04: Statistical Data Analysis -->
+          <article class="project-card reveal">
+            <div class="project-thumb-box">
+              <img 
+                src="images/project-data.jpg" 
+                alt="Statistical Data Analysis" 
+                class="project-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="img-fallback fallback-data">
+                <span>Statistical Data Analysis</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-category">Coursework Project</span>
+              <h3 class="card-title">Statistical Data Analysis</h3>
+              <p class="card-desc">
+                A coursework project involving basic statistical analysis and interpretation of educational data using statistical software.
+              </p>
+              <div class="tool-tags">
+                <span>Jamovi</span>
+                <span>SPSS</span>
+                <span>Data Analysis</span>
+              </div>
+              <a href="#contact" class="link-action">
+                View Project Details →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 05: Mathematics Learning Web Concept -->
+          <article class="project-card reveal">
+            <div class="project-thumb-box">
+              <img 
+                src="images/project-web.jpg" 
+                alt="Mathematics Learning Web Concept" 
+                class="project-img"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="img-fallback fallback-web">
+                <span>Web Learning Concept</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-category">Academic / Learning Project</span>
+              <h3 class="card-title">Mathematics Learning Web Concept</h3>
+              <p class="card-desc">
+                A small web development project exploring how HTML, CSS, and JavaScript can be used to create a simple educational website.
+              </p>
+              <div class="tool-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <a href="#contact" class="link-action">
+                View Project Details →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. PUBLICATIONS SECTION ================= -->
+    <section class="section publications-section" id="publications">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Academic Research</span>
+          <h2 class="section-title">Publications</h2>
+          <p class="section-subtitle">Academic Publications & Collaborative Research</p>
+          <p class="section-note">
+            Karya ilmiah dan penelitian kolaboratif yang disusun bersama dosen dan rekan mahasiswa dalam ranah pendidikan matematika.
+          </p>
+        </div>
+
+        <div class="publications-list">
+          <!-- Publication 01 (Co-authored / Ditekankan) -->
+          <article class="publication-card publication-primary reveal">
+            <div class="pub-badge-wrapper">
+              <span class="pub-type-badge highlight-badge">Co-authored Publication</span>
+              <span class="pub-year">2025</span>
+            </div>
+            <h3 class="pub-title">
+              Kajian Literatur tentang Penggunaan Media GeoGebra dalam Pembelajaran Fungsi Kuadrat di Sekolah Menengah Atas
+            </h3>
+            <p class="pub-authors">
+              <strong>Penulis:</strong> Tabitha Gabriela Sianipar & Nurhasanah Siregar
+            </p>
+            <div class="pub-meta">
+              <span><strong>Jurnal:</strong> Katalis Pendidikan: Jurnal Ilmu Pendidikan dan Matematika</span>
+              <span><strong>Volume:</strong> 2(4)</span>
+              <span><strong>Halaman:</strong> 08–13</span>
+              <span><strong>DOI:</strong> 10.62383/katalis.v2i4.2407</span>
+            </div>
+            <div class="pub-action">
+              <a href="https://www.researchgate.net/publication/396868121_Kajian_Literatur_tentang_Penggunaan_Media_GeoGebra_dalam_Pembelajaran_Fungsi_Kuadrat_di_Sekolah_Menengah_Atas" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                Read Publication →
+              </a>
+            </div>
+          </article>
+
+          <!-- Publication 02 -->
+          <article class="publication-card reveal">
+            <div class="pub-badge-wrapper">
+              <span class="pub-type-badge">Collaborative Publication</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <h3 class="pub-title">
+              Pelatihan dan Penguatan Persiapan Kegiatan Olimpiade Matematika Dalam Penguatan Kemampuan Berfikir Pada Ekstrakurikuler Matematika Di SMA Negeri 1 Deli Tua
+            </h3>
+            <p class="pub-authors">
+              <strong>Penulis:</strong> Fransisco Dinata Siregar, Iwan Martua Simbolon, Tabitha Gabriela Sianipar, & Kairuddin
+            </p>
+            <div class="pub-meta">
+              <span><strong>Jurnal:</strong> Jurnal Ilmiah Wahana Pendidikan</span>
+              <span><strong>Volume:</strong> 12(1.A)</span>
+              <span><strong>Halaman:</strong> 17–22</span>
+            </div>
+            <div class="pub-action">
+              <a href="https://jurnal.peneliti.net/index.php/JIWP/article/view/12281" target="_blank" rel="noopener noreferrer" class="link-action">
+                Read Article →
+              </a>
+            </div>
+          </article>
+
+          <!-- Publication 03 -->
+          <article class="publication-card reveal">
+            <div class="pub-badge-wrapper">
+              <span class="pub-type-badge">Collaborative Publication</span>
+              <span class="pub-year">2025</span>
+            </div>
+            <h3 class="pub-title">
+              Pendekatan Pembelajaran Matematika di SMP Swasta Pahlawan Nasional Studi Kasus Penerapan Metode Diferensiasi oleh Guru
+            </h3>
+            <p class="pub-authors">
+              <strong>Penulis:</strong> Annisa Qoyyima, Dwi Octa Marcelina Girsang, Elisabeth Romauli Purba, Mariatul Kiftia Sakila, Nurhasanah Siregar, Nurul Azizah Ritonga, & Tabitha Gabriela Sianipar
+            </p>
+            <div class="pub-meta">
+              <span><strong>Jurnal:</strong> Indonesian Journal of Education and Development Research</span>
+              <span><strong>Volume:</strong> 3(1)</span>
+            </div>
+            <div class="pub-action">
+              <a href="https://rayyanjurnal.com/index.php/IJEDR/article/view/4578" target="_blank" rel="noopener noreferrer" class="link-action">
+                Read Article →
+              </a>
+            </div>
+          </article>
+
+          <!-- Publication 04 -->
+          <article class="publication-card reveal">
+            <div class="pub-badge-wrapper">
+              <span class="pub-type-badge">Collaborative Publication</span>
+              <span class="pub-year">2025</span>
+            </div>
+            <h3 class="pub-title">
+              Analisis Kesalahan Siswa SMAS Eria Kelas XI dalam Menyelesaikan Soal Cerita Pemecahan Masalah Persamaan Kuadrat Berdasarkan Taksonomi Newman
+            </h3>
+            <p class="pub-authors">
+              <strong>Penulis:</strong> Angelica Sigalingging, Elisabeth Romauli Purba, Mariatul Kiftia Shakila, Tabitha Gabriela Sianipar, & Nurhasanah Siregar
+            </p>
+            <div class="pub-meta">
+              <span><strong>Jurnal:</strong> Aljabar: Jurnal Ilmuan Pendidikan, Matematika dan Kebumian</span>
+              <span><strong>Volume:</strong> 1(4)</span>
+              <span><strong>Halaman:</strong> 01–10</span>
+              <span><strong>DOI:</strong> 10.62383/aljabar.v1i4.785</span>
+            </div>
+            <div class="pub-action">
+              <a href="https://journal.arimsi.or.id/index.php/Aljabar/article/view/785" target="_blank" rel="noopener noreferrer" class="link-action">
+                Read Article →
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 7. EDUCATION & CURRENTLY LEARNING ================= -->
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="edu-learning-layout">
+          <div class="edu-column reveal">
+            <div class="section-header-left">
+              <span class="section-tag">Academic Path</span>
+              <h2 class="section-title">Education</h2>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-body">
+                  <span class="timeline-period">2023 – Present</span>
+                  <h3 class="timeline-inst">Universitas Negeri Medan</h3>
+                  <h4 class="timeline-prog">S1 Pendidikan Matematika — Bilingual Program</h4>
+                  <p class="timeline-text">
+                    Menempuh studi sarjana pendidikan matematika program bilingual dengan fokus pada pedagogi modern, integrasi media digital dalam kelas, dan penelitian ilmiah.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="learning-column reveal">
+            <div class="section-header-left">
+              <span class="section-tag">Focus & Growth</span>
+              <h2 class="section-title">Currently Learning</h2>
+            </div>
+            <div class="learning-card-box">
+              <p class="learning-quote">"Always learning, exploring, and improving."</p>
+              <div class="learning-items-wrap">
+                <div class="learn-chip"><span>•</span> Mathematics Education</div>
+                <div class="learn-chip"><span>•</span> Educational Technology</div>
+                <div class="learn-chip"><span>•</span> Digital Learning Media</div>
+                <div class="learn-chip"><span>•</span> Web Development</div>
+                <div class="learn-chip"><span>•</span> Data Analysis</div>
+                <div class="learn-chip"><span>•</span> Educational Research</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 8. CONTACT SECTION ================= -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="section-tag">Let's Connect</span>
+          <h2 class="contact-heading">Have a project, collaboration, or just want to say hello?</h2>
+          <p class="contact-sub">
+            I am always open to discussions regarding mathematics education, creative digital media projects, and academic collaboration.
+          </p>
+
+          <div class="contact-links-grid">
+            <a href="https://instagram.com/thvxtgs" target="_blank" rel="noopener noreferrer" class="contact-action-btn">
+              <div class="contact-icon">◎</div>
+              <div class="contact-details">
+                <span class="channel-label">Instagram</span>
+                <span class="channel-val">@thvxtgs</span>
+              </div>
+            </a>
+
+            <a href="mailto:tabithasianipar@gmail.com" class="contact-action-btn">
+              <div class="contact-icon">✉</div>
+              <div class="contact-details">
+                <span class="channel-label">Email</span>
+                <span class="channel-val">tabithasianipar@gmail.com</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-copy">© 2026 Tabitha Gabriela Sianipar. All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Scroll to top">↑</button>
+
+  <!-- JavaScript Lengkap -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Hamburger Menu
+      const navToggle = document.getElementById('navToggle');
+      const navMenu = document.getElementById('navMenu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = navMenu.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Navbar Scrolled & Back to top
+      const header = document.getElementById('header');
+      const backToTopBtn = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        if (scrollPos > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+
+        if (scrollPos > 320) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // 3. Scroll Reveal Animations
+      const revealElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('active'));
+      }
+
+      // 4. Active Nav Link on Scroll
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        sections.forEach(section => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 110;
+          const sectionId = section.getAttribute('id');
+
+          if (currentScroll > sectionTop && currentScroll <= sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            const currentActiveLink = document.querySelector(`.nav-list a[href*='${sectionId}']`);
+            if (currentActiveLink) currentActiveLink.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
