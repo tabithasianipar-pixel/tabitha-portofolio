@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <style>
     /* ==========================================================================
        CSS VARIABLES & THEME (Soft Lavender, Deep Plum, & Modern Aesthetic)
@@ -88,13 +88,11 @@
     }
 
     .section {
-      padding: 100px 0;
+      padding: 95px 0;
       position: relative;
     }
 
-    /* ==========================================================================
-       BUTTONS & CHIPS
-       ========================================================================== */
+    /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -153,9 +151,7 @@
       transform: translateX(4px);
     }
 
-    /* ==========================================================================
-       HEADER & NAVBAR (CUSTOM REFINED LOGO)
-       ========================================================================== */
+    /* HEADER & NAVBAR */
     .header {
       position: fixed;
       top: 0;
@@ -181,7 +177,6 @@
       height: 76px;
     }
 
-    /* LOGO MODERN DENGAN MONOGRAM TG EMBLEM */
     .logo {
       display: flex;
       align-items: center;
@@ -218,11 +213,11 @@
     .nav-list {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 22px;
     }
 
     .nav-link {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-muted);
       position: relative;
@@ -236,7 +231,7 @@
     .nav-btn-cta {
       background-color: var(--accent-light);
       color: var(--primary-purple) !important;
-      padding: 8px 20px;
+      padding: 8px 18px;
       border-radius: var(--radius-full);
       font-weight: 600;
     }
@@ -263,27 +258,23 @@
       transition: var(--transition);
     }
 
-    /* ==========================================================================
-       1. HERO SECTION (REFINED & NO TACKY AI WATERMARKS)
-       ========================================================================== */
+    /* 1. HERO SECTION */
     .hero {
       position: relative;
-      min-height: 92vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       padding-top: 85px;
       overflow: hidden;
     }
 
-    /* Grid Matematika Kartesian Halus di Background (Estetik & Akademis) */
     .math-grid-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: 
-        radial-gradient(rgba(112, 85, 158, 0.08) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(112, 85, 158, 0.08) 1px, transparent 1px);
       background-size: 28px 28px;
       mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
       -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 80%);
@@ -291,7 +282,6 @@
       z-index: 1;
     }
 
-    /* Glow Ambient Halus */
     .hero-ambient-glow {
       position: absolute;
       width: 450px;
@@ -363,7 +353,6 @@
       gap: 16px;
     }
 
-    /* FRAME FOTO ELEGAN (Natural, Tanpa Garis Putus-putus Kaku) */
     .hero-visual {
       display: flex;
       justify-content: center;
@@ -403,7 +392,6 @@
       transform: scale(1.03);
     }
 
-    /* Floating Status Chip di Atas Foto */
     .floating-accent-tag {
       position: absolute;
       bottom: -14px;
@@ -424,7 +412,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: #10b981; /* Fresh green active dot */
+      background-color: #10b981;
     }
 
     .floating-text {
@@ -433,7 +421,6 @@
       color: var(--text-headline);
     }
 
-    /* Ambient card border */
     .card-ambient-shadow {
       position: absolute;
       top: 15px;
@@ -446,9 +433,7 @@
       filter: blur(8px);
     }
 
-    /* ==========================================================================
-       SECTION HEADERS
-       ========================================================================== */
+    /* SECTION HEADERS */
     .section-header {
       text-align: center;
       max-width: 720px;
@@ -483,9 +468,7 @@
       color: var(--text-muted);
     }
 
-    /* ==========================================================================
-       2. ABOUT ME
-       ========================================================================== */
+    /* 2. ABOUT ME */
     .about-main-wrapper {
       display: grid;
       grid-template-columns: 1.25fr 0.85fr;
@@ -623,9 +606,7 @@
       line-height: 1.48;
     }
 
-    /* ==========================================================================
-       4. SKILLS & APPLIED COMPETENCIES
-       ========================================================================== */
+    /* 4. SKILLS SECTION */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -690,9 +671,7 @@
       color: var(--primary-purple);
     }
 
-    /* ==========================================================================
-       5. SELECTED PROJECTS
-       ========================================================================== */
+    /* 5. SELECTED PROJECTS */
     .projects-layout {
       display: grid;
       grid-template-columns: 1.35fr 1fr;
@@ -842,9 +821,103 @@
       background: linear-gradient(135deg, #f1ecf9 0%, #e2d7f3 100%);
     }
 
-    /* ==========================================================================
-       6. PUBLICATIONS SECTION
-       ========================================================================== */
+    /* 6. ORGANIZATIONAL & COMMUNITY ENGAGEMENT */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .experience-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+    }
+
+    .experience-card:hover {
+      border-color: var(--border-focus);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .exp-title {
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 0.95rem;
+      color: var(--primary-purple);
+      font-weight: 600;
+    }
+
+    .exp-badge {
+      background-color: var(--accent-light);
+      color: var(--primary-purple);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .exp-desc {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 22px;
+      max-width: 900px;
+    }
+
+    .exp-gallery {
+      display: grid;
+      gap: 16px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .gallery-2-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-3-cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-item {
+      height: 230px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* 7. PUBLICATIONS SECTION */
     .publications-list {
       display: flex;
       flex-direction: column;
@@ -923,9 +996,7 @@
       margin-bottom: 16px;
     }
 
-    /* ==========================================================================
-       7. EDUCATION & LEARNING
-       ========================================================================== */
+    /* 8. EDUCATION & LEARNING */
     .edu-learning-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1027,9 +1098,7 @@
       font-size: 1.2rem;
     }
 
-    /* ==========================================================================
-       8. CONTACT
-       ========================================================================== */
+    /* 9. CONTACT */
     .contact-card {
       background-color: var(--bg-card);
       border: 1px solid var(--border-focus);
@@ -1098,9 +1167,7 @@
       color: var(--text-headline);
     }
 
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
+    /* FOOTER */
     .footer {
       padding: 36px 0;
       border-top: 1px solid var(--border-subtle);
@@ -1190,6 +1257,7 @@
       .about-main-wrapper { grid-template-columns: 1fr; }
       .projects-layout { grid-template-columns: 1fr; }
       .edu-learning-layout { grid-template-columns: 1fr; }
+      .gallery-3-cols { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
@@ -1217,6 +1285,9 @@
       .hero-title { font-size: 2.3rem; }
       .section-title { font-size: 1.85rem; }
       .about-narrative-card { padding: 28px 22px; }
+      .experience-card { padding: 24px 18px; }
+      .gallery-2-cols, .gallery-3-cols { grid-template-columns: 1fr; }
+      .gallery-item { height: 210px; }
       .contact-card { padding: 40px 20px; }
       .contact-links-grid { flex-direction: column; }
       .contact-action-btn { width: 100%; }
@@ -1227,7 +1298,7 @@
 </head>
 <body>
 
-  <!-- ================= STICKY HEADER & NAVBAR ================= -->
+  <!-- ================= HEADER & NAVBAR ================= -->
   <header class="header" id="header">
     <div class="container nav-container">
       <a href="#home" class="logo">
@@ -1249,6 +1320,7 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#publications" class="nav-link">Publications</a></li>
           <li><a href="#education" class="nav-link">Education</a></li>
           <li><a href="#contact" class="nav-link nav-btn-cta">Contact</a></li>
@@ -1258,9 +1330,8 @@
   </header>
 
   <main>
-    <!-- ================= 1. HERO SECTION (REFINED) ================= -->
+    <!-- ================= 1. HERO SECTION ================= -->
     <section class="hero" id="home">
-      <!-- Grid Geometri Matematika Estetik Halus -->
       <div class="math-grid-bg"></div>
       <div class="hero-ambient-glow"></div>
 
@@ -1291,7 +1362,6 @@
                 onerror="this.style.display='none';"
               />
             </div>
-            <!-- Status Badge Natural -->
             <div class="floating-accent-tag">
               <span class="floating-dot"></span>
               <span class="floating-text">Bilingual Math Ed • UNIMED</span>
@@ -1457,7 +1527,7 @@
       </div>
     </section>
 
-    <!-- ================= 4. SELECTED PROJECTS (HANYA PROYEK ASLI) ================= -->
+    <!-- ================= 4. SELECTED PROJECTS ================= -->
     <section class="section projects-section" id="projects">
       <div class="container">
         <div class="section-header reveal">
@@ -1547,7 +1617,92 @@
       </div>
     </section>
 
-    <!-- ================= 5. PUBLICATIONS SECTION ================= -->
+    <!-- ================= 5. ORGANIZATIONAL & COMMUNITY ENGAGEMENT ================= -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Engagement & Activities</span>
+          <h2 class="section-title">Organizational & Community Experience</h2>
+          <p class="section-note">Pengalaman organisasi mahasiswa, kontribusi kreatif, dan kegiatan pengabdian masyarakat nyata di lapangan.</p>
+        </div>
+
+        <div class="experience-list">
+          <!-- 1. Persma (1 Tahun Sebagai Ilustrator) -->
+          <article class="experience-card reveal">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Lembaga Pers Mahasiswa (Persma)</h3>
+                <p class="exp-role">Ilustrator • 1 Tahun</p>
+              </div>
+              <span class="exp-badge">Student Organization</span>
+            </div>
+            <p class="exp-desc">
+              Berkontribusi aktif selama 1 tahun dalam divisi kreatif sebagai ilustrator. Bertanggung jawab dalam merancang ilustrasi visual, grafis editorial, serta konten publikasi media pers mahasiswa guna menyampaikan informasi dan narasi secara lebih komunikatif dan menarik bagi pembaca.
+            </p>
+            <div class="exp-gallery gallery-2-cols">
+              <div class="gallery-item">
+                <img src="images/persma-1.jpeg" alt="Dokumentasi Persma 1" onerror="this.src='images/profile.jpg';" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/persma-2.jpeg" alt="Dokumentasi Persma 2" onerror="this.src='images/profile.jpg';" />
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Pengabdian Masyarakat Bersih Pantai MESP 23 -->
+          <article class="experience-card reveal">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Aksi Pengabdian Masyarakat: Beach Clean-Up</h3>
+                <p class="exp-role">Volunteer & Anggota Tim • Bersama MESP 23</p>
+              </div>
+              <span class="exp-badge">Social Action</span>
+            </div>
+            <p class="exp-desc">
+              Mengikuti kegiatan pengabdian masyarakat bersama rekan-rekan mahasiswa Pendidikan Matematika Bilingual (MESP 23) dalam aksi pembersihan pesisir pantai. Kegiatan ini berfokus pada pelestarian ekosistem pantai, pengelolaan limbah pesisir, serta menumbuhkan kepedulian bersama terhadap kebersihan lingkungan alam.
+            </p>
+            <div class="exp-gallery gallery-3-cols">
+              <div class="gallery-item">
+                <img src="images/pantai-1.jpeg" alt="Dokumentasi Bersih Pantai 1" onerror="this.src='images/profile.jpg';" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/pantai-2.jpeg" alt="Dokumentasi Bersih Pantai 2" onerror="this.src='images/profile.jpg';" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/pantai-3.jpeg" alt="Dokumentasi Bersih Pantai 3" onerror="this.src='images/profile.jpg';" />
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Community Service Program di Desa Siboro (Divisi Acara) -->
+          <article class="experience-card reveal">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Community Service Program di Desa Siboro</h3>
+                <p class="exp-role">Divisi Acara (Event Division) • Tim Pengabdian Mahasiswa</p>
+              </div>
+              <span class="exp-badge">Community Outreach</span>
+            </div>
+            <p class="exp-desc">
+              Bertanggung jawab dalam Divisi Acara untuk merancang rundown, mengoordinasikan alur kegiatan, dan memfasilitasi pelaksanaan program edukatif serta interaksi sosial bersama warga dan anak-anak di Desa Siboro, memastikan setiap agenda berjalan lancar, terstruktur, dan bermakna.
+            </p>
+            <div class="exp-gallery gallery-3-cols">
+              <div class="gallery-item">
+                <img src="images/siboro-1.jpeg" alt="Dokumentasi Desa Siboro 1" onerror="this.src='images/profile.jpg';" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/siboro-2.jpeg" alt="Dokumentasi Desa Siboro 2" onerror="this.src='images/profile.jpg';" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/siboro-3.jpeg" alt="Dokumentasi Desa Siboro 3" onerror="this.src='images/profile.jpg';" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. PUBLICATIONS SECTION ================= -->
     <section class="section publications-section" id="publications">
       <div class="container">
         <div class="section-header reveal">
@@ -1656,7 +1811,7 @@
       </div>
     </section>
 
-    <!-- ================= 6. EDUCATION & CURRENTLY LEARNING ================= -->
+    <!-- ================= 7. EDUCATION & CURRENTLY LEARNING ================= -->
     <section class="section education-section" id="education">
       <div class="container">
         <div class="edu-learning-layout">
@@ -1701,7 +1856,7 @@
       </div>
     </section>
 
-    <!-- ================= 7. CONTACT SECTION ================= -->
+    <!-- ================= 8. CONTACT SECTION ================= -->
     <section class="section contact-section" id="contact">
       <div class="container">
         <div class="contact-card reveal">
@@ -1742,6 +1897,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
